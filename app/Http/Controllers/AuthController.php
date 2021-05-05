@@ -23,7 +23,20 @@ class AuthController extends Controller
         $user->save();
 
         if($this->loginAfterSignUp){
-            return $this->login($request);
+            /*return $this->login($request);*/
+            $input = $request->only('email', 'password');
+            $jwt_token = null;
+            if(!$jwt_token = JWTAuth::attempt($input)){
+                return response()->json([
+                    'status' => 'invalid_credentials',
+                    'message' => 'Invalid Error'
+                ], 401);
+            }
+
+            return response()->json([
+                'status' => 'ok',
+                'token' => $jwt_token,
+            ]);
         }
         return response()->json([
             'status' => 'ok',
@@ -31,8 +44,9 @@ class AuthController extends Controller
         ], 200);
     }
 
+
     public function login(Request $request){
-        $input = $request->only('email', 'password');
+        /*$input = $request->only('email', 'password');
         $jwt_token = null;
         if(!$jwt_token = JWTAuth::attempt($input)){
             return response()->json([
@@ -44,7 +58,8 @@ class AuthController extends Controller
         return response()->json([
             'status' => 'ok',
             'token' => $jwt_token,
-        ]);
+        ]);*/
+        return view('login');
     }
 
     public function logout(Request $request){
@@ -122,4 +137,42 @@ class AuthController extends Controller
         return response()->json($data, $code,
             ['Content-Type' => 'application/json;charset=UTF-8','Charset' => 'utf-8'],JSON_UNESCAPED_UNICODE);
     }
+
+    function create(Request $request){
+        return $request->input();
+    }
+
+    function check(Request $request){
+        //validate requests
+        $request->validate([
+            'email'=>'required|email',
+            'password'=>'required'
+        ]);
+        /*return $request->input();*/
+        $input = $request->only('email', 'password');
+        $jwt_token = null;
+        if(!$jwt_token = JWTAuth::attempt($input)){
+            return response()->json([
+                'status' => 'invalid_credentials',
+                'message' => 'Invalid Error'
+            ], 401);
+        }
+
+        /*return response()->json([
+            'status' => 'ok',
+            'token' => $jwt_token,
+        ]);*/
+        return redirect('/dashboard');
+    }
+
+    function dashboard(){
+        return view('dashboard');
+    }
+    function addEvent(){
+        return view('addEvent');
+    }
+    function showEvent(){
+        return view('showEvent');
+    }
 }
+

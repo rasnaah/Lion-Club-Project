@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+Route::get('/addEvent', function () {
+    return view('addEvent');
+});
+Route::get('/showEvent', function () {
+    return view('showEvent');
+});
+Route::get('login','App\Http\Controllers\AuthController@login');
+Route::post('check', 'App\Http\Controllers\AuthController@check')->name('auth.check');
+Route::get('check', 'App\Http\Controllers\AuthController@dashboard');
