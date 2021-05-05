@@ -27,7 +27,7 @@
                     <span>DG Plan</span></a>
             </li>
             <li>
-                <a href="event.php"><span class="las la-calendar"></span>
+                <a href="/addEvent"><span class="las la-calendar"></span>
                     <span>Event</span></a>
             </li>
         </ul>

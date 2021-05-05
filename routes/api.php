@@ -8,6 +8,9 @@ Route::post('/login', 'App\Http\Controllers\AuthController@check');
 Route::post('password/forgot','App\Http\Controllers\ForgotController@forgot');
 Route::post('password/reset','App\Http\Controllers\ForgotController@reset');
 Route::post('/recover', 'App\Http\Controllers\AuthController@recover');
+Route::resource('/event', 'App\Http\Controllers\EventsController')->except([
+    'create', 'edit'
+]);
 
 Route::group(['middleware' => ['jwt.auth']], function() {
     Route::get('/logout', 'App\Http\Controllers\AuthController@logout');
