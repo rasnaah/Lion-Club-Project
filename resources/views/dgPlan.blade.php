@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Events</title>
+    <title>DG Plan</title>
     <!------------------------ Meta Starts ---------------------->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,10 +76,6 @@
                         <span class="las la-calendar"></span>
                         <span>Event</span>
                     </a>
-                    <ul class="sub-menu">
-                        <li><a href="/addEvent">Add Event</a></li>
-                        <li><a href="/showEvent">Show Events</a></li>
-                    </ul>
                 </li>
             </ul>
         </div>
@@ -90,52 +86,10 @@
                 <label for="">
                     <span class="las la-bars"></span>
                 </label>
-                Event
+                DG Plan
             </h2>
         </header>
-        <main>
-            <form class="event-form">
-                <div class="event-form-title">
-                    <h2>Add Event</h2>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="title">Title</label>
-                        <input class="form-control" type="text" name="title" id="title" placeholder="Title">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="club">Club</label>
-                        <input class="form-control" type="text" name="title" id="title" placeholder="Club">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="date">Date</label>
-                        <input type="date" name="" id="datepicker">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="time">Time</label>
-                        <input type="time" name="time" id="time">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" name="" id="" cols="30" rows="3"
-                                  placeholder="Description"></textarea>
-                    </div>
-                </div>
-                <button class="add-btn" type="submit" class="btn btn-primary">Add Event</button>
-            </form>
-        </main>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('#datepicker').datepicker({
-                dateFormat: "YYYY-MM-DD"
-            });
-        });
-    </script>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -25,6 +25,9 @@ Route::get('/addEvent', function () {
 Route::get('/showEvent', function () {
     return view('showEvent');
 });
+Route::get('/dgPlan', function () {
+    return view('dgPlan');
+});
 Route::get('login','App\Http\Controllers\AuthController@login');
 Route::post('check', 'App\Http\Controllers\AuthController@check')->name('auth.check');
 Route::get('check', 'App\Http\Controllers\AuthController@dashboard');

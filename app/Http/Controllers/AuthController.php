@@ -174,5 +174,8 @@ class AuthController extends Controller
     function showEvent(){
         return view('showEvent');
     }
+    function dgPlan(){
+        return view('dgPlan');
+    }
 }
 
