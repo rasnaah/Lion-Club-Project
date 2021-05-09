@@ -94,6 +94,28 @@
             </h2>
         </header>
         <main>
+            //
+            {{--<form method="post" action="{{ route('auth.check') }}" class="admin-login-form">
+
+                @csrf
+                <div class="logo-container">
+                    <img src="img/logo/logo.png" alt="Lions-club-logo">
+                </div>
+                <h2>LOGIN</h2>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" value="{{ old ('email') }}" placeholder="Enter email address"/>
+                    <span class="text-danger">@error('email') {{ $message }}@enderror</span>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" value="{{ old ('password') }}" placeholder="Enter password"/>
+                    <span class="text-danger">@error('password') {{ $message }}@enderror</span>
+                </div>
+                <a class="forgot-pw-link" href="#">Forgot Password</a>
+                <input type="submit" name="login" class="btn btn-primary" value="Login" />
+                <div class="register-link">Do not have an account? <a href="#">Register Here</a></div>
+            </form>--}}
+            //
+
             <form class="event-form">
                 <div class="event-form-title">
                     <h2>Add Event</h2>

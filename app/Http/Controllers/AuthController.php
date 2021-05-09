@@ -158,11 +158,11 @@ class AuthController extends Controller
             ], 401);
         }
 
-        /*return response()->json([
+        return response()->json([
             'status' => 'ok',
             'token' => $jwt_token,
-        ]);*/
-        return redirect('/dashboard');
+        ]);
+        /*return redirect('/dashboard');*/
     }
 
     function dashboard(){
