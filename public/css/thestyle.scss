@@ -1,0 +1,470 @@
+/**
+ * Created by Anu Ganesh
+*/
+
+@import "components/fonts_and_colors";
+
+/*------------------------------------ Site Wide Starts -----------------------------------*/
+
+/*------------------------------------- Site Wide Ends ------------------------------------*/
+
+/*--------------------------------- Header Wrapper Starts ---------------------------------*/
+/*--------------------------------- Header Wrapper Starts ---------------------------------*/
+
+/*-------------------------------- Content Wrapper Starts ---------------------------------*/
+// Code for Login-Page Starts
+.admin-login-form {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 30%;
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+
+  .logo-container {
+    width: 100px;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  h2 {
+    font-size: 26px;
+    margin: 20px 0;
+    letter-spacing: 0.4px;
+  }
+  label {
+    font-weight: 500;
+  }
+  input {
+    padding: 7px 35px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: border-color 0.2s;
+    &:focus {
+      outline: none;
+      border-color: #f9c910;
+    }
+  }
+  .forgot-pw-link {
+    display: block;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .login-btn {
+    background: #0a3dab;
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    margin: 20px 0;
+    font-weight: 500;
+    border-radius: 4px;
+    &:hover {
+      background: #07318c;
+    }
+  }
+  .register-link {
+    font-size: 14px;
+    font-weight: 500;
+    // a {
+
+    // }
+  }
+}
+// Code for Login-Page Ends
+
+// Code for index page Starts
+.sidebar {
+  background: $primary-color-1;
+  font-family: $font-type-1;
+  width: 290px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 100;
+  .sidebar-brand {
+    height: 90px;
+    padding: 1.6rem 0 1.6rem 3.2rem;
+    color: $white-color;
+    display: flex;
+    .logo-container {
+      width: 50px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .logo-title {
+      padding-top: 10px;
+      margin-left: 10px;
+      h2 {
+        font-size: 24px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+    }
+  }
+  .sidebar-menu {
+    margin-top: 1.6rem;
+    ul {
+      li {
+        width: 100%;
+        margin-bottom: 2.1rem;
+        padding-left: 1.6rem;
+        a {
+          padding-left: 20px;
+          display: block;
+          color: $white-color;
+          font-size: 1.8rem;
+          font-weight: 600;
+          &.active {
+            background: $white-color;
+            padding: 1.6rem 2rem;
+            color: $primary-color-1;
+            border-radius: 0px 0px 0px 42px;
+          }
+
+          span {
+            &:first-child {
+              font-size: 2rem;
+              padding-right: 10px;
+            }
+          }
+        }
+        .sub-menu {
+          margin: 20px 0 0 35px;
+        }
+      }
+    }
+  }
+}
+.main-content {
+  margin-left: 290px;
+  background: #f4f5f9;
+  height: 100vh;
+  header {
+    padding: 1.6rem;
+    background: #eaebef;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 290px;
+    width: calc(100% - 290px);
+    z-index: 100;
+    h2 {
+      font-size: 2.1rem;
+      label {
+        padding-right: 1rem;
+        span {
+          font-size: 2.4rem;
+        }
+      }
+    }
+  }
+  main {
+    background: $white-color;
+    margin-top: 62px;
+    padding: 3.2rem 2.4rem;
+    min-height: calc(100vh - 62px);
+    .event-form {
+      // background: $white-color;
+      padding: 20px;
+      font-family: $font-type-2;
+      .event-form-title {
+        h2 {
+          font-size: 24px;
+          margin-bottom: 30px;
+          color: #5e636d;
+        }
+      }
+      .form-row {
+        margin-bottom: 10px;
+        .form-group {
+          label {
+            color: #5e636d;
+            font-weight: 500;
+            font-size: 17px;
+          }
+          input {
+            width: 100%;
+            padding: 20px;
+            color: gray;
+            border: 1px solid #c7c2c2;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all .2s linear;
+            &:focus {
+              outline: none;
+              box-shadow: 0 0 10px rgba(12,106,185, 0.5);
+              border: 1px solid #53b6dc;
+            }
+          }
+          input[type="date"],
+          input[type="time"] {
+            padding: 10px 20px;
+          }
+          textarea {
+            font-size: 14px;
+            padding: 10px;
+            &:focus {
+              outline: none;
+              box-shadow: 0 0 10px rgba(12,106,185, 0.5);
+              border: 1px solid #53b6dc;
+            }
+          }
+        }
+      }
+      .add-btn {
+        padding: 15px 30px;
+        border: none;
+        border-radius: 100px;
+        background: $primary-color-2;
+        color: $black-color;
+        font-weight: 600;
+        &:focus {
+          outline: none;
+        }
+        &:hover {
+          background: $primary-color-2-dark;
+        }
+      }
+    }
+    
+  }
+}
+
+// Code for index page Ends
+
+//Code for show-event.php Starts
+.list-of-events-section {
+  .section-title {
+    h2 {
+      padding-left: 20px;
+      font-size: 24px;
+      color: #5e636d;
+    }
+  }
+  .section-content {
+    .top-section {
+      display: flex;
+      justify-content: space-between;
+      background: transparent;
+      padding: 20px 20px 40px;
+      .top-item {
+          &:nth-of-type(1) {
+              input {
+                  padding: 6px;
+                  &:focus {
+                      border: 1px solid #13417a;
+                      box-shadow: 0 0 5px #646bb7;
+                  }
+              }
+              span {
+                  background: #13417a;
+                  color: white;
+                  font-size: 14px;
+                  padding: 8px 10px 7px;
+                  margin-left: -6px;
+              }
+          }
+          &:nth-of-type(2),
+          &:nth-of-type(3) {
+              label {
+                  font-weight: 500;
+              }
+              select {
+                  padding: 7px;
+                  background: white;
+                  color: black;
+                  font-weight: 400;
+                  border: 1px solid #524d4d;
+                  border-radius: 5px;
+                  margin-left: 10px;
+              }
+          }
+          .filter-btn {
+              margin-top: -20px;
+              color: white;
+              padding: 10px 30px;
+              background: #13417a;
+              border: none;
+              font-size: 16px;
+              letter-spacing: 0.5px;
+              &:hover {
+                  background: #0d2c53;
+              }
+              span {
+                  padding-left: 5px;
+              }
+          }
+      }
+  }
+  table {
+      width: 100%;
+      border-spacing: 20px;
+      border-collapse: initial;
+      padding: 0px 20px 30px;
+      th {
+          text-align: left;
+          padding: 0px 10px;
+      }
+      tbody {
+          tr {
+              box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+              border-radius: 20px;
+              margin-bottom: 20px;
+              border-top: 1em solid transparent;
+              td {
+                  padding: 30px 10px;
+                  .address {
+                      color: #e61111;
+                      font-weight: 400;
+                      i {
+                          margin-right: 7px;
+                      }
+                  }
+                  .edit-section {
+                      a {
+                          &:nth-of-type(1) {
+                              color: $primary-color-1;
+                          }
+                          &:nth-of-type(2) {
+                              color: #0bb60b;
+                          }
+                          &:nth-of-type(3) {
+                              color: red;
+                          }
+                          &:hover {
+                              color: black;
+                          }
+                          span {
+                              &:not(last-of-type) {
+                                  margin-right: 10px;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+  }
+} 
+//Code for show-event.php Ends
+/*--------------------------------- Content Wrapper Ends ----------------------------------*/
+
+/*--------------------------------- Footer Wrapper Starts ---------------------------------*/
+/*---------------------------------- Footer Wrapper Ends ----------------------------------*/
+
+/*----------------------------------- Components Starts -----------------------------------*/
+.common-remove-tab-style {
+  border-bottom: 0;
+  li {
+    a {
+      padding: 0;
+      background-color: transparent;
+      border: 0;
+      &:focus,
+      &:hover {
+        background-color: transparent;
+        border: 0;
+      }
+    }
+
+    &.active {
+      a {
+        background-color: transparent;
+        border: 0;
+        &:focus,
+        &:hover {
+          background-color: transparent;
+          border: 0;
+        }
+      }
+    }
+  }
+}
+/*------------------------------------ Components Ends ------------------------------------*/
+
+/*---------------------------------- Slick Slider Starts ----------------------------------*/
+/*---------------------------------- Slick Slider Starts ----------------------------------*/
+.slick-slider {
+  // .slick-prev,.slick-next{
+
+  // }
+
+  .slick-prev {
+    left: 20px;
+  }
+
+  .slick-next {
+    right: 20px;
+  }
+}
+/*----------------------------------- Slick Slider Ends -----------------------------------*/
+/*----------------------------------- Slick Slider Ends -----------------------------------*/
+
+/*------------------------------------- Mcustom Starts ------------------------------------*/
+/*-------------------------------------- Mcustom Ends -------------------------------------*/
+
+/*-------------------------------------- Modal Starts -------------------------------------*/
+.modal-dialog {
+  margin: 70px auto;
+  .modal-header {
+    padding: 0;
+    border: 0;
+    button {
+      position: absolute;
+      top: -30px;
+      right: 0;
+      color: #fff;
+      opacity: 1;
+    }
+  }
+  .modal-content {
+    background: black;
+    border-radius: 0;
+    .modal-body {
+      padding: 30px 26px;
+      .modal-loading-gif {
+        height: 130px;
+        position: relative;
+        img {
+          width: 30px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: auto;
+          top: 50%;
+          transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          -moz-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          -o-transform: translateY(-50%);
+        }
+      }
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      ul li,
+      ol li,
+      span {
+        color: #fff;
+      }
+    }
+  }
+}
+/*--------------------------------------- Modal Ends --------------------------------------*/
