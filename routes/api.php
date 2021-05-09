@@ -15,9 +15,6 @@ Route::resource('/event', 'App\Http\Controllers\EventsController')->except([
 Route::group(['middleware' => ['jwt.auth']], function() {
     Route::get('/logout', 'App\Http\Controllers\AuthController@logout');
 
-    Route::get('/currentUser', 'App\Http\Controllers\AuthController@getAuthUser');
-    Route::put('/editCurrentUser', 'App\Http\Controllers\AuthController@update');
-
     Route::get('/test', function(){
         return response()->json(['foo'=>'bar']);
     });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Model\Events;
 use Illuminate\Http\Request;
 
 class EventsController extends Controller
@@ -13,7 +14,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $event = Event::select("event.*")->get()->toArray();
+        $event = Events::select("event.*")->get()->toArray();
 
         return response()->json($event);
     }
@@ -41,7 +42,7 @@ class EventsController extends Controller
             'title' => 'required|string',
             'club' => 'required|string',
             'date' => 'required|date',
-            'time' => 'required|timestamp',
+            'time' => 'required|time',
             'description' => 'required|text'
         ]);
         if ($validator->fails()){
@@ -106,7 +107,7 @@ class EventsController extends Controller
             'title' => 'required|string',
             'club' => 'required|string',
             'date' => 'required|date',
-            'time' => 'required|timestamp',
+            'time' => 'required|time',
             'description' => 'required|text'
         ]);
         if ($validator->fails()){

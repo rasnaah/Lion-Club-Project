@@ -19,4 +19,13 @@ class Events extends Model
     ];
 
     public $timestamps = false;
+
+/*    public function setDateAttribute($value)
+    {
+        $this->attributes['date'] = Carbon::createFromFormat('yyyy/mm/dd', $value)->toDateString();
+    }*/
+/*    public function setTimeAttribute($value)
+    {
+        $this->attributes['time'] = Carbon::createFromFormat('yyyy/mm/dd', $value)->toDateString();
+    }*/
 }
