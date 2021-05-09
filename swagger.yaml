@@ -1,0 +1,37 @@
+swagger: "2.0"
+info:
+  description: "This file contains API documentation to add events in application"
+  version: "1.0.0"
+  title: "Add Events"
+  termsOfService: "www.rasana.com.np"
+  contact:
+    email: "rasana12945@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8000"
+basePath: "/api"
+tags:
+  - name: "event"
+    description: "Everything about events in application"
+    externalDocs:
+      description: "Find out more"
+      url: "http://swagger.io"
+
+schemes:
+  - "http"
+paths:
+  /event:
+    get:
+      tags:
+        - "event"
+      summary: "View all upcoming events stored in application"
+      description: ""
+      operationId: "addPet"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        "405":
+          description: "Invalid input"
