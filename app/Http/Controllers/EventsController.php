@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\ImageUpload;
 use App\Models\Model\Events;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Str;
+use Validator;
 
 class EventsController extends Controller
 {
+    use ImageUpload;
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +48,8 @@ class EventsController extends Controller
             'club' => 'required|string',
             'date' => 'required|date',
             'time' => 'required|time',
-            'description' => 'required|text'
+            'image' => 'required|mimes:jpeg,jpg,png,gig',
+            'description' => 'required|string'
         ]);
         if ($validator->fails()){
             return response()->json([
@@ -51,7 +57,7 @@ class EventsController extends Controller
                 'error' => $validator->messages(),
             ]);
         }
-        try{
+/*        try{
             Assistance::create($input);
             return response()->json([
                 "ok" => true,
@@ -62,7 +68,37 @@ class EventsController extends Controller
                 "ok" => false,
                 "error" => $ex->getMessage(),
             ]);
+        }*/
+        $event = new Events();
+
+        // Check if an image has been uploaded
+        if ($request->has('image')) {
+            // Get image file
+            $image = $request->file('image');
+            // Make a image name based on user name and current timestamp
+            $name = Str::slug($request->input('name')).'_'.time();
+            // Define folder path
+            $folder = '/uploads/images/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+            // Set user profile image path in database to filePath
+
+            $event->title = $request->title;
+            $event->club = $request->club;
+            $event->date = $request->date;
+            $event->time = $request->time;
+            $event->image = $filePath;
+            $event->description = $request->description;
+            //$event->user_id = $request->user_id;
+                $event->save();
         }
+
+        return  response()->json([
+            "ok" => true,
+            "data" => $event,
+        ]);
     }
 
     /**
@@ -73,13 +109,23 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        $event = Event::select("event.*")
+        $event = Events::select("event.*")
             ->where("event.id", $id)
             ->first();
         return  response()->json([
             "ok" => true,
             "data" => $event,
         ]);
+    }
+
+    public function deleteImage($id){
+        $userData=Events::findOrFail($id);
+        $imageName=$userData->image;
+        $deletePath=public_path('images/'.$imageName);
+        if(file_exists($deletePath)){
+            return unlink($deletePath);
+        }
+        return true;
     }
 
     /**
@@ -108,7 +154,7 @@ class EventsController extends Controller
             'club' => 'required|string',
             'date' => 'required|date',
             'time' => 'required|time',
-            'description' => 'required|text'
+            'description' => 'required|string'
         ]);
         if ($validator->fails()){
             return response()->json([
@@ -116,8 +162,17 @@ class EventsController extends Controller
                 'error' => $validator->messages(),
             ]);
         }
+        if ($request->hasFile('image')){
+            $image=$request->file('image');
+            $ext=$image->getClientOriginalExtension();
+            $imageName=Str::random(18).'.'.$ext;
+            $uploadPath=public_path('images/');
+            if($this->deleteImage($id) && $image->move($uploadPath,$imageName)){
+                $data['images']=$imageName;
+            }
+        }
         try {
-            $event = Event::find($id);
+            $event = Events::find($id);
             if ($event == false) {
                 return response()->json([
                     "ok" => false,
@@ -146,13 +201,14 @@ class EventsController extends Controller
     public function destroy($id)
     {
         try {
-            $event = Event::find($id);
+            $event = Events::find($id);
             if ($event == false) {
                 return  response()->json([
                     "ok" => false,
                     "error" => "No data is found",
                 ]);
             }
+            $this->deleteImage($id);
             $event->delete([
 
             ]);

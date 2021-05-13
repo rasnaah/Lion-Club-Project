@@ -15,6 +15,7 @@ class Events extends Model
         'club',
         'date',
         'time',
+        'image',
         'description'
     ];
 

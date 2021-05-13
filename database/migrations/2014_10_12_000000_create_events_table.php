@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration
             $table->string('club');
             $table->date('date');
             $table->time('time');
+            $table->string('image');
             $table->text('description');
             /*$table->rememberToken();*/
             $table->timestamps();
@@ -33,6 +34,12 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event');
+        //Schema::dropIfExists('rescue');
+        Schema::table('event', function (Blueprint $table) {
+            $table->dropColumn('image');
+        });
     }
+/*    {
+        Schema::dropIfExists('event');
+    }*/
 }
