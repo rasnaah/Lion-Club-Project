@@ -47,7 +47,7 @@ class EventsController extends Controller
             'title' => 'required|string',
             'club' => 'required|string',
             'date' => 'required|date',
-            'time' => 'required|time',
+            //'time' => 'required|time',
             'image' => 'required|mimes:jpeg,jpg,png,gig',
             'description' => 'required|string'
         ]);

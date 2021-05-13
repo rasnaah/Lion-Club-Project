@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->string('club');
             $table->date('date');
-            $table->time('time');
+            $table->time('time')->toString();
             $table->string('image');
             $table->text('description');
             /*$table->rememberToken();*/
