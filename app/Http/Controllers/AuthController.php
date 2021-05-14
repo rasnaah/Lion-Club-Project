@@ -138,44 +138,6 @@ class AuthController extends Controller
             ['Content-Type' => 'application/json;charset=UTF-8','Charset' => 'utf-8'],JSON_UNESCAPED_UNICODE);
     }
 
-    function create(Request $request){
-        return $request->input();
-    }
 
-    function check(Request $request){
-        //validate requests
-        $request->validate([
-            'email'=>'required|email',
-            'password'=>'required'
-        ]);
-        /*return $request->input();*/
-        $input = $request->only('email', 'password');
-        $jwt_token = null;
-        if(!$jwt_token = JWTAuth::attempt($input)){
-            return response()->json([
-                'status' => 'invalid_credentials',
-                'message' => 'Invalid Error'
-            ], 401);
-        }
-
-        return response()->json([
-            'status' => 'ok',
-            'token' => $jwt_token,
-        ]);
-        /*return redirect('/dashboard');*/
-    }
-
-    function dashboard(){
-        return view('dashboard');
-    }
-    function addEvent(){
-        return view('addEvent');
-    }
-    function showEvent(){
-        return view('showEvent');
-    }
-    function dgPlan(){
-        return view('dgPlan');
-    }
 }
 
